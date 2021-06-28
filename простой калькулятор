@@ -1,0 +1,105 @@
+//this is the simplest calculator from Vlad Shvetsov It can subtract-add, multiply-divide, raise numbers to the power,
+//also find the factorial and square root + the math library is used, for the root and degree
+
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+	//declaring variable
+    float a,d,c;
+    char g,n;
+    long int p=1;
+    //why not
+    printf("Hi dude!\n");
+    //1 item entering the first variable and assigning a value
+     do {printf("Enter the first variable:\n");
+        scanf("%f",&a);
+        //2 item selecting available operations
+    printf("(! finding the factorial of the first variabler)\n");
+    printf("(^ find the degree of a variable)\n");
+    printf("(# extract the root from the first variable)\n");
+    printf("What operation do you want to perform?: +,-,*,/,!,^,#:\n");
+    scanf("%s",&g);
+    //3 item providing input of 2 numbers if necessary
+    if(g=='+'||g=='-'||g=='*'||g=='/')
+          {
+    	     printf("Enter the second variable:\n");
+             scanf("%f",&d);
+          }
+    // 4 item the operator analyzes the operations to be performed
+      else if(g=='^')
+      {
+    	     printf("Enter the degree:\n");
+             scanf("%f",&d);
+      }
+       switch(g)
+          {
+             case '+':
+               c=a+d;
+               printf("%.3f\n",c);
+            break;
+            case '-':
+              c=a-d;
+              printf("%.3f\n",c);
+            break;
+            case '*':
+              c=a*d;
+               printf("%.3f\n",c);
+           break;
+           case '/':
+           if(d==0)
+              printf("Error:cannot be divided by 0\n");
+          else
+             {
+                c=a/d;
+                printf("%.5f\n",c);}
+              break;
+              case '!':
+              if(a<0)
+                printf("Error:negative variable\n");
+              else if (a==0)
+                printf("1\n");
+              else if (a==1)
+                printf("1\n");
+              else if(a-(int)a!=0)
+                printf("Error: You can't use fractional variable\n");
+              else
+                  {
+                    for(float i=1; i<=a; i++)
+                      {
+                    	p=p*i;}
+                        printf("%li\n",p);
+                      }
+                   break;
+                   case '^':
+                   if(d==0)
+                   {
+                    printf("1\n");
+                   }
+                 else
+                    {
+                      printf("%0.5f\n",pow(a,d));
+                    }
+               break;
+              case '#':
+              if (a<0)
+               printf("Error:negative variable\n");
+             else
+               printf("%.5f\n",sqrt(a));
+            break;
+            default:
+               printf("Error:evil operation\n");
+              }
+              //5  item a suggestion to end or continue the program
+               printf("Do you want to continue? (y/n)\n");
+               scanf("%s",&n);
+              while ((n != 'y') && (n !='n'))
+              {
+                 printf("Do you want to continue? (y/n)\n");
+                 scanf("%s",&n);}
+       }
+              while(n=='y');
+              printf("by dude)");
+              return 0;
+}
